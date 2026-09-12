@@ -5,6 +5,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
+import dns from "dns";
+dns.setServers(["8.8.8.8"]);
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -209,4 +211,4 @@ mongoose
   .then(() =>
     app.listen(process.env.PORT || 5000, () => console.log("API ready")),
   )
-  .catch((e) => console.error("MongoDB:", e.message));
+  .catch((e) => console.error("MongoDB:", e));
